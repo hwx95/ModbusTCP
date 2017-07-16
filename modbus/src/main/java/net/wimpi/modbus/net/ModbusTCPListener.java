@@ -130,19 +130,13 @@ public class ModbusTCPListener
           program logins can probably be prevented.
       */
       m_ServerSocket = new ServerSocket(m_Port);
-      Log.e("!!!!!!!!!!!!!!!!!!!!!", "111111111111");
       if(Modbus.debug) System.out.println("Listenening to " + m_ServerSocket.toString() + "(Port " + m_Port + ")");
-      Log.e("!!!!!!!!!!!!!!!!!!!!!", "2222222222222222222222");
 
       //Infinite loop, taking care of resources in case of a lot of parallel logins
       do {
-          Log.e("!!!!!!!!!!!!!!!!!!!!!", "55555555555555");
-
           Socket incoming = m_ServerSocket.accept();
-        Log.e("!!!!!!!!!!!!!!!!!!!!!", "333333333333333333");
 
         if (Modbus.debug) System.out.println("Making new connection " + incoming.toString());
-        Log.e("!!!!!!!!!!!!!!!!!!!!!", "444444444444444444");
 
         if (m_Listening) {
           //FIXME: Replace with object pool due to resource issues
